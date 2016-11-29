@@ -1,10 +1,10 @@
-app.factory('movieService', function(){
+app.service('movieService', function(){
 
     var movieService = {
-        allMovies = [],
+        allMovies: [],
 
         submitMovie: function (newMovie){
-        allMovies.push(newMovie);
+        movieService.allMovies.push(newMovie);
 
         }
     }

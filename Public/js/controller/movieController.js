@@ -1,14 +1,14 @@
-app.controller('movieController', function($scope, movieServices) {
+app.controller('movieController', ['$scope','movieService',function($scope, movieService) {
 
-$scope.allMovies = movieServices.allMovies;
+$scope.allMovies = movieService.allMovies;
 
 $scope.submitMovie = function() {
     var newMovie = {
       movie_name: $scope.movie_name,
       movie_length: $scope.movie_length,
-      description: $scope.description,
+      description: $scope.description
     }
-    movieServices.submitMovie(newMovie);
+    movieService.submitMovie(newMovie);
 }
 
-});
+}]);
