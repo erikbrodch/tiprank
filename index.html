@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body ng-app="movieApp"  ng-controller="allMovieCntrl">
+
+<form name="carrotForm" ng-submit="carrotForm.$valid && submitCarrot()">
+        <legend>Submit a movie</legend>
+        <div class="form-group">
+          <label for="name">Movie Name</label>
+          <input type="text" name="name" id="name" placeholder="Name your movie" class="form-control"  ng-model="movie_name" required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="movie_length">Movie Length</label>
+          <input type="number" name="movie_length" id="movie_length" placeholder="what's the length of the movie'" class="form-control" ng-model="movie_length" required>
+        </div>
+         <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" name="description" id="description" placeholder="description"  class="form-control" ng-model="description" ng-maxlength="100" autofocus>
+        </div>
+        <button type="submit" class="btn btn-success">Submit Moive</button>
+      </form>
+
+
+ <div class="row text-center">
+
+   <div class="col-lg-4 col-md-6 col-sm-12 hero-feature" ng-repeat="movie in allMovies">
+     <div class="card">
+       <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+         <div class="content">
+           <h2 style="font-family:Glegoo;font-weight:200;text-transform:uppercase;">{{movie.movie_name}}</h2>
+           <hr style="width:50%;border-top:1px dotted #798694 ;">
+           <h3>Movie Length: {{movie.movie_length}} minutes</h3>
+           <h4 style="padding:6px 0; color:#6C7A89 "><i class="fa fa-money" style="font-size: 0.9em;opacity: 0.9;" aria-hidden="true"></i>  Entrance Fee: ${{carrot.entrance_fee}}</h4>
+           <h4 style="color:#6C7A89 "><i class="fa fa-user" style="font-size: 0.9em;opacity: 0.9;" aria-hidden="true"></i> Description: {{movie.description}}</h4>
+           <br>
+         </div>
+     </div>
+   </div>
+
+ <!-- /.row -->
+</div>
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="Public/app.js"></script>
+<script src="Public/js/service.js"></script>
+<script src="Public/js/controller.js"></script>
+</body>
+</html>
